@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
         [contactList addContact:cont4];
         
         while (true) {
-            NSString *selection =  [inputCollector inputForPrompt:@"\n\nWhat do you want to do next?\n\nnew - Create new contact\n\nlist - List all contacts\n\nquit - Exit Application"];
+            NSString *selection =  [inputCollector inputForPrompt:@"\n\nWhat do you want to do next?\n\nnew - Create new contact\n\nlist - List all contacts\n\nshow <index> - Shows information of contact\n\nfind <text> - Lists the info of all matches\n\nquit - Exit Application"];
             if([selection  isEqual: @"quit"])
             {
                 NSLog(@"Buh-Bye!");
@@ -47,6 +47,11 @@ int main(int argc, const char * argv[]) {
                 unichar lastChar = [selection characterAtIndex:[selection length] - 1];
                 NSInteger index = (NSInteger)lastChar;
                 [contactList showContact:index];
+            } else if([selection containsString:@"find"])
+            {
+                NSMutableString *name = [NSMutableString stringWithString:selection];
+                [name deleteCharactersInRange:NSMakeRange(0, 5)];
+                [contactList findContact:name];
             }
         }
     }

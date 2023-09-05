@@ -44,6 +44,28 @@
     {
         NSLog(@"\n\n%@:\n-%@\n ",_contacts[num].name,_contacts[num].email);
     }
-    
+}
+-(void)findContact: (NSString*)string
+{
+    NSMutableString *result = [NSMutableString stringWithString:@"\nResults:"];
+    NSInteger index = 0;
+    for(Contact *contact in _contacts)
+    {
+        if([contact.name containsString:string] || [contact.email containsString:string])
+        {
+            if(index > 0)
+            {
+                [result appendString:@"\n---------------------------------\n"];
+            }
+            [result appendFormat:@"\n%@:\n-%@",contact.name, contact.email];
+            index++;
+        }
+    }
+    if(index == 0)
+    {
+        NSLog(@"No Results...");
+    } else {
+        NSLog(@"%@",result);
+    }
 }
 @end
