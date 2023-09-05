@@ -17,6 +17,14 @@ int main(int argc, const char * argv[]) {
         
         InputCollector *inputCollector = [[InputCollector alloc] init];
         ContactList *contactList = [[ContactList alloc] init];
+        Contact *cont1 = [[Contact alloc] initWithName:@"Ion" andEmail:@"ion@mail.com"];
+        Contact *cont2 = [[Contact alloc] initWithName:@"Simone" andEmail:@"sim1@mail.com"];
+        Contact *cont3 = [[Contact alloc] initWithName:@"Melissa" andEmail:@"meli@mail.com"];
+        Contact *cont4 = [[Contact alloc] initWithName:@"Kav" andEmail:@"kav@mail.com"];
+        [contactList addContact:cont1];
+        [contactList addContact:cont2];
+        [contactList addContact:cont3];
+        [contactList addContact:cont4];
         
         while (true) {
             NSString *selection =  [inputCollector inputForPrompt:@"\n\nWhat do you want to do next?\n\nnew - Create new contact\n\nlist - List all contacts\n\nquit - Exit Application"];
@@ -34,9 +42,11 @@ int main(int argc, const char * argv[]) {
             } else if([selection isEqual:@"list"])
             {
                 [contactList listContacts];
-            } else
+            } else if([selection containsString:@"show"])
             {
-                NSLog(@"Invalid Input!");
+                unichar lastChar = [selection characterAtIndex:[selection length] - 1];
+                NSInteger index = (NSInteger)lastChar;
+                [contactList showContact:index];
             }
         }
     }

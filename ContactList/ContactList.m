@@ -14,7 +14,7 @@
     self = [super init];
     if(self)
     {
-        _contacts = [[NSMutableArray alloc] init];
+        _contacts = [[NSMutableArray<Contact *>  alloc] init];
     }
     return self;
 }
@@ -33,5 +33,17 @@
         index++;
     }
     NSLog(list);
+}
+-(void)showContact: (NSInteger)index
+{
+    NSInteger num = index - 48;
+    if(num >= _contacts.count)
+    {
+        NSLog(@"\nContact with index %ld not found...\n", (long)num);
+    } else
+    {
+        NSLog(@"\n\n%@:\n-%@\n ",_contacts[num].name,_contacts[num].email);
+    }
+    
 }
 @end

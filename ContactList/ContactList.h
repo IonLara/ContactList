@@ -11,10 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ContactList : NSObject
-@property (nonatomic) NSMutableArray *contacts;
+@property (nonatomic) NSMutableArray<Contact *>  *contacts;
 -(instancetype) init;
 -(void)addContact:(Contact *)newContact;
 -(void)listContacts;
+-(void)showContact:(NSInteger)index;
 @end
 
 NS_ASSUME_NONNULL_END
