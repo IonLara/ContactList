@@ -11,6 +11,7 @@
 		62F6A42F2AA78BD700A4338D /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F6A42E2AA78BD700A4338D /* InputCollector.m */; };
 		62F6A4322AA7912F00A4338D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F6A4312AA7912F00A4338D /* Contact.m */; };
 		62F6A4352AA7934000A4338D /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F6A4342AA7934000A4338D /* ContactList.m */; };
+		62F6A4382AA7D11D00A4338D /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F6A4372AA7D11D00A4338D /* Phone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		62F6A4312AA7912F00A4338D /* Contact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		62F6A4332AA7934000A4338D /* ContactList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactList.h; sourceTree = "<group>"; };
 		62F6A4342AA7934000A4338D /* ContactList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactList.m; sourceTree = "<group>"; };
+		62F6A4362AA7D11D00A4338D /* Phone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Phone.h; sourceTree = "<group>"; };
+		62F6A4372AA7D11D00A4338D /* Phone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phone.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				62F6A4312AA7912F00A4338D /* Contact.m */,
 				62F6A4332AA7934000A4338D /* ContactList.h */,
 				62F6A4342AA7934000A4338D /* ContactList.m */,
+				62F6A4362AA7D11D00A4338D /* Phone.h */,
+				62F6A4372AA7D11D00A4338D /* Phone.m */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62F6A4352AA7934000A4338D /* ContactList.m in Sources */,
+				62F6A4382AA7D11D00A4338D /* Phone.m in Sources */,
 				62F6A42F2AA78BD700A4338D /* InputCollector.m in Sources */,
 				62F6A4322AA7912F00A4338D /* Contact.m in Sources */,
 				62F6A4272AA78A6400A4338D /* main.m in Sources */,

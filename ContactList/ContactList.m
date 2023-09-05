@@ -7,6 +7,7 @@
 
 #import "ContactList.h"
 #import "Contact.h"
+#import "Phone.h"
 
 @implementation ContactList
 -(instancetype) init
@@ -15,6 +16,7 @@
     if(self)
     {
         _contacts = [[NSMutableArray<Contact *>  alloc] init];
+        _phoneNumbers = [[NSMutableArray<NSMutableArray<Phone*>*> alloc] init];
     }
     return self;
 }
@@ -22,6 +24,7 @@
 -(void)addContact:(Contact *)newContact
 {
     [_contacts addObject:newContact];
+    _phoneNumbers[_contacts.count - 1] = [[NSMutableArray<Phone*> alloc] init];
 }
 -(void)listContacts
 {
@@ -42,7 +45,12 @@
         NSLog(@"\nContact with index %ld not found...\n", (long)num);
     } else
     {
-        NSLog(@"\n\n%@:\n-%@\n ",_contacts[num].name,_contacts[num].email);
+        NSMutableString *result = [NSMutableString stringWithFormat:@"\n\n%@:\n-%@\n ",_contacts[num].name,_contacts[num].email];
+        for(Phone *phone in _phoneNumbers[num])
+        {
+            [result appendFormat:@"%@: %@\n", phone.label, phone.number];
+        }
+        NSLog(result);
     }
 }
 -(void)findContact: (NSString*)string
@@ -81,5 +89,9 @@
         }
     }
     return hasMatch;
+}
+-(void)addPhone: (NSInteger)index andPhone: (Phone*) phone
+{
+    [_phoneNumbers[index - 48] addObject:phone];
 }
 @end
