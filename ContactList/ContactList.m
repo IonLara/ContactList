@@ -68,4 +68,18 @@
         NSLog(@"%@",result);
     }
 }
+
+-(BOOL)confirmEmail: (NSString*)email
+{
+    BOOL hasMatch = false;
+    for(Contact *contact in _contacts)
+    {
+        if([contact.email isEqual:email])
+        {
+            hasMatch = true;
+            break;
+        }
+    }
+    return hasMatch;
+}
 @end

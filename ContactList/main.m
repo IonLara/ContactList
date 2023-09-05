@@ -34,8 +34,13 @@ int main(int argc, const char * argv[]) {
                 break;
             } else if([selection isEqual:@"new"])
             {
-                NSString *contactName = [inputCollector inputForPrompt:@"\n\nNew Contact Name:\n"];
                 NSString *contactEmail = [inputCollector inputForPrompt:@"\n\nNew Contact Email:\n"];
+                if([contactList confirmEmail:contactEmail])
+                {
+                    NSLog(@"A contact with that email already exists!");
+                    continue;
+                }
+                NSString *contactName = [inputCollector inputForPrompt:@"\n\nNew Contact Name:\n"];
                 
                 Contact *newContact = [[Contact alloc] initWithName:contactName andEmail:contactEmail];
                 [contactList addContact:newContact];
